@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Dashboard — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/user-dashboard.css">
+</head>
+<body>
+
+  <div class="site-root">
+
+    <header class="topbar">
+      <div class="brand"><a href="index.html">OMNI<span>MEDIA</span></a></div>
+
+      <div class="search">
+        <input id="searchInput" placeholder="Search movies, songs, artists..." />
+      </div>
+
+      <div class="top-actions">
+        <button id="openProfile" class="btn">Profile</button>
+        <button id="logoutBtn" class="btn-ghost">Logout</button>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <aside class="sidebar">
+        <div class="user-card">
+          <div id="userAvatar" class="avatar">U</div>
+          <div class="user-meta">
+            <div id="userName" class="name">User</div>
+            <div id="userEmail" class="email muted">user@omni</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button data-section="home" class="nav-btn active">Home</button>
+          <button data-section="playlists" class="nav-btn">Playlists</button>
+          <button data-section="recommendations" class="nav-btn">Recommendations</button>
+          <button data-section="history" class="nav-btn">Listening History</button>
+          <button data-section="settings" class="nav-btn">Settings</button>
+        </nav>
+      </aside>
+
+      <main class="main">
+
+        <!-- HOME -->
+        <section class="section active" data-section="home">
+          <h1>Welcome back, <span id="greetingName">User</span></h1>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head">
+                <h3>Your Playlists</h3>
+                <button id="newPlaylistBtn" class="btn small">New Playlist</button>
+              </div>
+              <div id="playlistsList" class="list"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-head">
+                <h3>Quick Recommendations</h3>
+                <div class="muted small">Based on your recent activity</div>
+              </div>
+              <div id="recommendList" class="rec-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PLAYLISTS -->
+        <section class="section" data-section="playlists">
+          <h1>Your Playlists</h1>
+          <div class="card">
+            <div class="muted small">Create and manage playlists. Drag to reorder in playlist view.</div>
+            <div id="playlistView" class="playlist-view"></div>
+          </div>
+        </section>
+
+        <!-- RECOMMENDATIONS -->
+        <section class="section" data-section="recommendations">
+          <h1>Recommendations</h1>
+          <div class="card">
+            <div id="recommendFull" class="rec-grid"></div>
+          </div>
+        </section>
+
+        <!-- HISTORY -->
+        <section class="section" data-section="history">
+          <h1>Listening History</h1>
+          <div class="card">
+            <div id="historyList" class="list"></div>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="section" data-section="settings">
+          <h1>Settings</h1>
+          <div class="card">
+            <label>Default Volume</label>
+            <input id="volSetting" type="range" min="0" max="1" step="0.01" />
+            <div class="row" style="margin-top:10px">
+              <label>Show mini player</label>
+              <input id="miniToggle" type="checkbox" />
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- AUDIO MINI PLAYER (sticky bottom) -->
+    <div class="mini-player" id="miniPlayer">
+      <div class="mp-left">
+        <div id="mpTitle">—</div>
+        <div id="mpArtist" class="muted small">—</div>
+      </div>
+      <div class="mp-controls">
+        <button id="prevBtn" class="ctrl">⏮</button>
+        <button id="playPauseBtn" class="ctrl">▶</button>
+        <button id="nextBtn" class="ctrl">⏭</button>
+      </div>
+      <div class="mp-right">
+        <input id="mpSeek" type="range" min="0" max="100" value="0" />
+      </div>
+      <audio id="audioPlayer"></audio>
+    </div>
+
+    <!-- MODAL / BACKDROP -->
+    <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+      <div id="modalPanel" class="modal-panel"></div>
+    </div>
+
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artist Details – Omni Media Hub</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/artist-details.css" />
+</head>
+
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="top-nav">
+    <div class="logo">OMNI MEDIA HUB</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="music.html">Music</a>
+      <a href="artists.html" class="active">Artists</a>
+      <a href="playlists.html">Playlists</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="artist-hero">
+    <div class="hero-overlay"></div>
+    <div class="artist-header-content">
+      <img id="artistImage" class="artist-photo" src="" alt="Artist">
+      <h1 id="artistName" class="artist-title"></h1>
+      <p id="artistFollowers" class="artist-followers"></p>
+
+      <div class="artist-actions">
+        <button id="followBtn" class="btn-follow">Follow</button>
+        <button id="shuffleBtn" class="btn-shuffle">Shuffle Play</button>
+        <button id="editBtn" class="btn-edit">Edit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO SECTION -->
+  <section class="artist-bio-section">
+    <h2>Biography</h2>
+    <p id="artistBio"></p>
+  </section>
+
+  <!-- SONG LIST -->
+  <section class="song-list-section">
+    <h2>Songs</h2>
+    <div id="songList" class="song-list"></div>
+  </section>
+
+  <!-- TOASTS -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="js/artist-details.js"></script>
+</body>
+</html>

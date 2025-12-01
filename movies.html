@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movies — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/movies.css">
+</head>
+<body>
+  <div class="page" id="pageMovies">
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <a href="index.html" class="logo">OMNI<span>MEDIA</span></a>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="movies.html" class="active">Movies</a></li>
+          <li><a href="music.html">Music</a></li>
+          <li><a href="playlists.html">Playlists</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="favorites.html" class="btn outline">Favorites</a>
+        <a href="login.html" class="btn">Login</a>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <section class="controls" aria-label="Movie filters and search">
+        <div class="search-wrap">
+          <label class="sr-only" for="movieSearch">Search movies</label>
+          <input id="movieSearch" type="search" placeholder="Search titles, actors, keywords..." autocomplete="off" />
+        </div>
+
+        <div class="filters">
+          <div class="chip-wrap" id="genreChips" aria-label="Filter by genre"></div>
+
+          <div class="select-row">
+            <label for="sortBy" class="sr-only">Sort By</label>
+            <select id="sortBy">
+              <option value="pop">Recommended</option>
+              <option value="year_desc">Year (new → old)</option>
+              <option value="year_asc">Year (old → new)</option>
+              <option value="runtime_asc">Runtime (short → long)</option>
+              <option value="runtime_desc">Runtime (long → short)</option>
+              <option value="title_az">Title A → Z</option>
+            </select>
+          </div>
+
+          <div class="range-row">
+            <label for="yearRange">Year range</label>
+            <input id="yearRange" type="range" min="1950" max="2025" step="1" />
+            <div class="range-value" id="yearVal">1950 — 2025</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="movies-grid-wrap" aria-labelledby="moviesTitle">
+        <h2 id="moviesTitle" class="sr-only">Movies</h2>
+        <div id="moviesGrid" class="movies-grid" role="list"></div>
+
+        <div class="load-area">
+          <button id="loadMore" class="btn outline">Load more</button>
+          <div id="infiniteMessage" class="muted small"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>&copy; <span id="currYear"></span> Omni Media Hub</small>
+    </footer>
+  </div>
+
+  <!-- Quick movie modal (z-index above everything) -->
+  <div id="movieModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeModal" aria-label="Close">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <script src="js/movies.js"></script>
+</body>
+</html>

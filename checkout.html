@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Omni Media Hub</title>
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+<div class="checkout-wrapper">
+
+    <div class="checkout-card">
+
+        <h1 class="title">Choose Your Plan</h1>
+
+        <div class="plans">
+            <label class="plan">
+                <input type="radio" name="plan" value="monthly" checked>
+                <div class="plan-box">
+                    <h3>Monthly</h3>
+                    <p>$9.99</p>
+                </div>
+            </label>
+
+            <label class="plan">
+                <input type="radio" name="plan" value="yearly">
+                <div class="plan-box">
+                    <h3>Yearly</h3>
+                    <p>$99.99</p>
+                </div>
+            </label>
+
+            <label class="plan">
+                <input type="radio" name="plan" value="premium">
+                <div class="plan-box premium">
+                    <h3>Premium+</h3>
+                    <p>$149.99</p>
+                </div>
+            </label>
+        </div>
+
+        <h2 class="subtitle">Payment Information</h2>
+
+        <form id="paymentForm">
+
+            <div class="input-group">
+                <label>Cardholder Name</label>
+                <input type="text" id="cardName" placeholder="Name on card">
+            </div>
+
+            <div class="input-group">
+                <label>Card Number</label>
+                <input type="text" id="cardNumber" maxlength="19" placeholder="0000 0000 0000 0000">
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Expiry (MM/YY)</label>
+                    <input type="text" id="expiry" maxlength="5" placeholder="MM/YY">
+                </div>
+
+                <div class="input-group">
+                    <label>CVV</label>
+                    <input type="password" id="cvv" maxlength="3" placeholder="***">
+                </div>
+            </div>
+
+            <button type="submit" class="checkout-btn">
+                Continue to Payment
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="js/checkout.js"></script>
+</body>
+</html>

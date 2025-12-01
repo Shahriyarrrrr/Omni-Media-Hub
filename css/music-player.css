@@ -1,0 +1,68 @@
+:root{
+  --bg:#031225;
+  --panel:#071426;
+  --muted:#9aa4b2;
+  --text:#e9f6ff;
+  --accent:#ff9f7a;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --shadow: 0 14px 40px rgba(1,6,12,0.7);
+  --max-width:1200px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#02101a,#031225);color:var(--text)}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;position:sticky;top:0;background:rgba(3,6,10,0.45);z-index:80;border-bottom:1px solid rgba(255,255,255,0.03)}
+.brand .logo{font-weight:800;color:var(--text);text-decoration:none}
+.logo span{color:var(--accent)}
+
+.player-main{display:flex;gap:20px;max-width:var(--max-width);margin:20px auto;padding:0 18px}
+.left-panel{flex:1;display:flex;flex-direction:column;gap:18px}
+.right-panel{width:360px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;box-shadow:var(--shadow);height:calc(100vh - 120px);overflow:auto}
+
+.album-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.album-art{position:relative;width:520px;height:520px;display:flex;align-items:center;justify-content:center;border-radius:999px;overflow:visible}
+.album-art img{width:360px;height:360px;border-radius:10px;object-fit:cover;position:relative;z-index:2;box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+#visualizer{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;pointer-events:none}
+
+.player-meta{width:100%;max-width:760px}
+.title-row{display:flex;flex-direction:column;align-items:center;gap:6px}
+.title-row h2{margin:0;font-size:24px}
+.muted{color:var(--muted)}
+.controls{margin-top:10px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.transport{display:flex;gap:12px;align-items:center}
+.icon-btn{background:transparent;border:0;color:var(--text);padding:8px;border-radius:8px;cursor:pointer;font-size:20px}
+.play-btn{background:var(--accent);border:0;color:#061218;padding:12px 18px;border-radius:10px;font-size:18px;cursor:pointer}
+.seek-wrap{width:100%}
+.seek-wrap input[type="range"]{width:100%}
+.time-row{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-top:6px}
+.audio-controls{display:flex;gap:8px;align-items:center;justify-content:center;width:100%}
+.audio-controls input[type="range"]{width:110px}
+
+.lyrics-panel{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:10px;box-shadow:var(--shadow);max-width:760px;min-height:120px;overflow:auto}
+.lyrics-scroll{white-space:pre-wrap;color:var(--muted);line-height:1.6}
+
+.queue-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.queue-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.queue-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:grab}
+.queue-item.dragging{opacity:0.5}
+.queue-item .qi-cover{width:56px;height:56px;border-radius:6px;object-fit:cover}
+.queue-item .qi-info{flex:1}
+.queue-item .qi-actions{display:flex;gap:6px}
+
+.queue-foot{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
+
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,12,0.6);z-index:150}
+.modal[aria-hidden="false"]{display:flex}
+.modal-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:12px;width:100%;max-width:420px;box-shadow:var(--shadow);position:relative}
+.modal-close{position:absolute;right:12px;top:12px;background:transparent;border:0;font-size:18px;cursor:pointer}
+
+.toast{position:fixed;right:18px;bottom:18px;background:rgba(0,0,0,0.6);padding:8px 12px;border-radius:8px;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+
+@media (max-width:1000px){
+  .player-main{flex-direction:column;padding:0 12px}
+  .album-art{width:360px;height:360px}
+  .right-panel{width:100%;height:auto}
+}

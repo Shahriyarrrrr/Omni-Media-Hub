@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Settings — Omni Media Hub</title>
+
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo"><a href="index.html">OMNI<span>MEDIA</span></a></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="settings.html" class="active">Settings</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <h1>Settings</h1>
+  <p class="muted">Customize your audio, video and UI preferences.</p>
+
+  <!-- APPEARANCE -->
+  <section class="panel">
+    <h2>Appearance</h2>
+
+    <div class="row">
+      <label>Theme</label>
+      <select id="themeSelect">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="system">System</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Accent Color</label>
+      <input id="accentColor" type="color">
+      <button id="resetAccent" class="btn small">Reset</button>
+    </div>
+
+    <div class="row">
+      <label>Compact UI</label>
+      <input id="compactToggle" type="checkbox">
+    </div>
+
+    <div class="row">
+      <label>Reduced Motion</label>
+      <input id="reducedMotion" type="checkbox">
+    </div>
+  </section>
+
+  <!-- PLAYBACK -->
+  <section class="panel">
+    <h2>Playback Preferences</h2>
+
+    <div class="row">
+      <label>Default Volume</label>
+      <input id="defaultVolume" type="range" step="0.01" min="0" max="1">
+      <span id="volLabel">0.80</span>
+    </div>
+
+    <div class="row">
+      <label>Playback Quality</label>
+      <select id="qualitySelect">
+        <option value="96">Low (96 kbps)</option>
+        <option value="160">Medium (160 kbps)</option>
+        <option value="320">High (320 kbps)</option>
+        <option value="lossless">Lossless</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Autoplay Next Track</label>
+      <input id="autoplayToggle" type="checkbox">
+    </div>
+
+    <div class="row">
+      <label>Crossfade Duration (sec)</label>
+      <input id="crossfade" type="number" min="0" max="12">
+    </div>
+  </section>
+
+  <!-- CONTENT FILTERING -->
+  <section class="panel">
+    <h2>Content Filtering</h2>
+
+    <div class="row">
+      <label>Allow Explicit Content</label>
+      <input id="explicitToggle" type="checkbox">
+    </div>
+  </section>
+
+  <!-- MINI PLAYER -->
+  <section class="panel">
+    <h2>Mini Player</h2>
+
+    <div class="row">
+      <label>Enable Mini Player</label>
+      <input id="miniPlayerToggle" type="checkbox">
+    </div>
+  </section>
+
+  <!-- ACCOUNT / PRIVACY -->
+  <section class="panel">
+    <h2>Account & Privacy</h2>
+
+    <div class="row">
+      <label>Language</label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="bn">Bengali</option>
+        <option value="es">Spanish</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Allow Analytics</label>
+      <input id="analyticsToggle" type="checkbox">
+    </div>
+  </section>
+
+  <!-- ACTION BUTTONS -->
+  <section class="panel actions">
+    <button id="saveBtn" class="btn primary">Save</button>
+    <button id="exportBtn" class="btn">Export</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+    <button id="importBtn" class="btn">Import</button>
+    <button id="resetBtn" class="btn danger">Reset</button>
+  </section>
+
+  <div id="toastContainer"></div>
+
+</main>
+
+<script src="js/settings.js"></script>
+</body>
+</html>

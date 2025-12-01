@@ -1,0 +1,200 @@
+/* artist-details.css */
+
+body {
+  background: #0d0d0d;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.top-nav {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  background: #111;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.top-nav .logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nav-links a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.nav-links .active,
+.nav-links a:hover {
+  color: #fff;
+}
+
+/* HERO SECTION */
+.artist-hero {
+  position: relative;
+  height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+}
+
+.artist-header-content {
+  position: relative;
+  z-index: 10;
+}
+
+.artist-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 100%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.4);
+  margin-bottom: 15px;
+}
+
+.artist-title {
+  margin: 10px 0 5px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.artist-followers {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.artist-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-follow,
+.btn-shuffle,
+.btn-edit {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-follow {
+  background: #1ed760;
+  color: #000;
+}
+
+.btn-shuffle {
+  background: #444;
+}
+
+.btn-edit {
+  background: #222;
+  border: 1px solid #555;
+}
+
+.btn-follow:hover,
+.btn-shuffle:hover,
+.btn-edit:hover {
+  opacity: 0.8;
+}
+
+/* BIO SECTION */
+.artist-bio-section {
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.artist-bio-section h2 {
+  margin-bottom: 15px;
+}
+
+.artist-bio-section p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* SONG LIST */
+.song-list-section {
+  padding: 40px;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.song-card {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.song-card:hover {
+  background: #292929;
+}
+
+.song-cover {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title {
+  font-weight: 600;
+}
+
+.song-duration {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* TOASTS */
+.toast-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 500;
+}
+
+.toast {
+  background: #222;
+  color: #fff;
+  padding: 12px 18px;
+  margin-top: 8px;
+  border-radius: 6px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}

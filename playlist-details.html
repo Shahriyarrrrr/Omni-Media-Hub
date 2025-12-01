@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Playlist Details — Omni Media Hub</title>
+  <meta name="description" content="Edit and manage a single playlist in depth." />
+  <link rel="stylesheet" href="css/playlist-details.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="playlists.html">Playlists</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="playlists.html" class="btn">Back</a>
+      <a href="music-player.html" class="btn">Open Player</a>
+    </div>
+  </header>
+
+  <main class="container" id="plDetailsMain" role="main">
+    <section class="pl-header">
+      <div class="cover-edit" id="coverEdit">
+        <img id="plCoverImage" src="assets/images/music-placeholder.jpg" alt="Playlist cover">
+        <input id="plCoverInput" placeholder="Cover image URL" />
+      </div>
+
+      <div class="pl-meta-edit">
+        <input id="plTitle" placeholder="Playlist title" />
+        <textarea id="plDesc" placeholder="Write a description (optional)"></textarea>
+        <div class="meta-row">
+          <input id="plTags" placeholder="tags (comma separated)"/>
+          <div class="meta-actions">
+            <button id="saveBtn" class="btn primary">Save</button>
+            <button id="discardBtn" class="btn outline">Discard</button>
+            <button id="exportBtn" class="btn">Export</button>
+            <button id="shareBtn" class="btn">Share</button>
+          </div>
+        </div>
+        <div id="plInfo" class="muted"></div>
+      </div>
+    </section>
+
+    <section class="tracks-section">
+      <div class="tracks-head">
+        <h2>Tracks</h2>
+        <div class="tracks-controls">
+          <button id="addTrackBtn" class="btn">Add Track</button>
+          <button id="bulkAddBtn" class="btn outline">Bulk Add (JSON)</button>
+          <button id="clearTracksBtn" class="btn">Clear</button>
+        </div>
+      </div>
+
+      <ul id="tracksList" class="tracks-list" role="list"></ul>
+
+      <div class="tracks-footer">
+        <div class="footer-left muted" id="tracksCount">0 tracks</div>
+        <div class="footer-right">
+          <button id="previewAllBtn" class="btn outline">Preview</button>
+          <button id="queueAllBtn" class="btn primary">Queue All</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hidden audio preview -->
+    <audio id="previewAudio" preload="metadata"></audio>
+
+    <!-- Bulk JSON modal -->
+    <div id="bulkModal" class="modal" aria-hidden="true" role="dialog">
+      <div class="modal-panel">
+        <button class="modal-close" id="closeBulk">✕</button>
+        <h4>Bulk Add Tracks (Paste JSON array)</h4>
+        <textarea id="bulkArea" placeholder='[{"title":"", "artist":"", "file":"", "cover":""}, ...]'></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px;">
+          <button id="pasteDemo" class="btn outline">Demo</button>
+          <button id="applyBulk" class="btn primary">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toastContainer" aria-live="polite"></div>
+  </main>
+
+  <script src="js/playlist-details.js"></script>
+</body>
+</html>

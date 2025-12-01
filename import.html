@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Omni Import</title>
+</head>
+<body style="background:#051521;color:white;font-family:Inter;">
+  <h1>Omni Media Hub — Data Importer</h1>
+  <p>Click the button below to import JSON demo data into your application.</p>
+
+  <button onclick="startImport()" style="
+      padding:12px 18px;
+      border-radius:8px;
+      background:#8be7ff;
+      color:#002129;
+      font-weight:700;
+      border:none;
+      font-size:16px;
+      cursor:pointer;">
+    Import Data
+  </button>
+
+  <script>
+    function startImport() {
+      const script = document.createElement("script");
+      script.src = "js/import-data.js";
+      document.body.appendChild(script);
+    }
+  </script>
+</body>
+</html>

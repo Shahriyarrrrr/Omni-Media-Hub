@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omni Media Hub — Home</title>
+
+  <!-- OMNI PRO styles -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div id="app">
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <a href="index.html" class="logo" aria-label="Omni Media Home">OMNI<span>MEDIA</span></a>
+      </div>
+
+      <nav class="main-nav" id="mainNav" role="navigation" aria-label="Primary">
+        <button id="navToggle" aria-expanded="false" aria-controls="navList" class="nav-toggle" aria-label="Open navigation">☰</button>
+        <ul id="navList" class="nav-list" hidden>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="music.html">Music</a></li>
+          <li><a href="playlists.html">Playlists</a></li>
+          <li><a href="search.html">Search</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions" id="userActions" aria-hidden="false">
+        <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌓</button>
+        <button id="openLogin" class="btn outline">Login</button>
+      </div>
+    </header>
+
+    <main class="hero" role="main">
+      <section class="hero-left" aria-labelledby="heroTitle">
+        <h1 id="heroTitle">Discover movies & music — curated, playable, and yours.</h1>
+        <p class="lead">Search, play, and save. Create playlists, manage favorites, and enjoy an immersive media experience — no frameworks, pure front-end engineering.</p>
+
+        <div class="cta-row">
+          <a href="movies.html" class="btn primary">Explore Movies</a>
+          <a href="music.html" class="btn">Browse Music</a>
+          <button id="quickSearchBtn" class="btn alt">Quick Search</button>
+        </div>
+
+        <div class="search-inline" aria-hidden="false">
+          <label for="inlineSearch" class="sr-only">Search movies and music</label>
+          <input id="inlineSearch" type="search" placeholder="Try: Moonlight, Nova, 2023..." autocomplete="off" />
+          <ul id="inlineResults" class="inline-results" role="listbox" aria-label="Search suggestions"></ul>
+        </div>
+      </section>
+
+      <section class="hero-right" aria-hidden="false">
+        <div class="feature-card" id="featureCard" aria-live="polite">
+          <div class="feature-media">
+            <img data-src="" alt="Featured curated playlist" class="lazy feature-image" />
+            <div class="feature-gradient"></div>
+          </div>
+
+          <div class="feature-body">
+            <div class="feature-info">
+              <div id="featureTitle" class="feature-title">Featured</div>
+              <div id="featureMeta" class="muted small">Curated for you</div>
+            </div>
+
+            <div class="feature-controls">
+              <button id="featurePlay" class="icon-btn" title="Play featured">▶</button>
+              <button id="featureAddFav" class="icon-btn" title="Add to favorites">☆</button>
+              <button id="featureDetails" class="icon-btn" title="Open details">ℹ︎</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="section trending" aria-labelledby="trendingTitle">
+      <div class="section-head">
+        <h2 id="trendingTitle">Trending This Week</h2>
+        <div class="trending-controls">
+          <button id="trPrev" class="icon-btn" aria-label="Previous">‹</button>
+          <button id="trNext" class="icon-btn" aria-label="Next">›</button>
+        </div>
+      </div>
+      <div id="trending" class="trending-carousel" tabindex="0" aria-roledescription="carousel"></div>
+    </section>
+
+    <section class="section discover" aria-labelledby="discoverTitle">
+      <h2 id="discoverTitle">Discover by Genre</h2>
+      <div id="genreGrid" class="grid"></div>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <small>&copy; <span id="year"></span> Omni Media Hub — Prototype.</small>
+        <nav aria-label="footer links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="loginTitle">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" id="closeLogin" aria-label="Close">✕</button>
+      <h3 id="loginTitle">Sign in to Omni</h3>
+      <form id="loginForm" class="modal-form" novalidate>
+        <label>
+          <span class="sr-only">Email</span>
+          <input id="loginEmail" type="email" placeholder="Email" required />
+        </label>
+        <label>
+          <span class="sr-only">Password</span>
+          <input id="loginPassword" type="password" placeholder="Password" required />
+        </label>
+        <label class="role-select">
+          <span class="sr-only">Role</span>
+          <select id="loginRole" aria-label="Role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <option value="developer">Developer</option>
+          </select>
+        </label>
+        <div class="modal-actions">
+          <button type="submit" class="btn primary">Login</button>
+          <a href="register.html" class="btn outline">Register</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- shared utils (recommended) -->
+  <script src="js/utils.js"></script>
+  <!-- enhanced index behavior -->
+  <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ms001",
+    "type": "music",
+    "title": "Celestial Drift",
+    "artist": "Nova Pulse",
+    "album": "Sky Resonance",
+    "genre": "Electronic",
+    "duration": 248,
+    "cover": "https://i.scdn.co/image/ab67616d0000b273112f7ef9a7e95135406c5744",
+    "src": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  },
+  {
+    "id": "ms002",
+    "type": "music",
+    "title": "Inner Bloom",
+    "artist": "Echo Circuit",
+    "album": "Bloomwave",
+    "genre": "Ambient",
+    "duration": 312,
+    "cover": "https://i.scdn.co/image/ab67616d0000b273c86c51a0d65704fbf7bd3d77",
+    "src": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+  },
+  {
+    "id": "ms003",
+    "type": "music",
+    "title": "Night Runner",
+    "artist": "Synth Horizon",
+    "album": "Midnight Acceleration",
+    "genre": "Synthwave",
+    "duration": 295,
+    "cover": "https://i.scdn.co/image/ab67616d0000b2737c8a62f37e06e5e853ee1bc2",
+    "src": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "mv001",
+    "type": "movie",
+    "title": "Eclipse of Tomorrow",
+    "year": 2023,
+    "genre": "Sci-Fi",
+    "duration": 142,
+    "description": "A high-concept sci-fi thriller exploring time distortion and interstellar collapse.",
+    "poster": "https://image.tmdb.org/t/p/w780/aJM3G8xKyYQjDwhf66A1VpzwuW2.jpg",
+    "trailer": "https://www.youtube.com/watch?v=21X5lGlDOfg"
+  },
+  {
+    "id": "mv002",
+    "type": "movie",
+    "title": "Moonlit Echoes",
+    "year": 2022,
+    "genre": "Drama",
+    "duration": 126,
+    "description": "A poetic story of love and identity unfolding beneath the coastal skyline.",
+    "poster": "https://picsum.photos/id/1011/800/1200",
+    "trailer": "https://www.youtube.com/watch?v=Vb5jW1qvAfk"
+  },
+  {
+    "id": "mv003",
+    "type": "movie",
+    "title": "Riftwalker",
+    "year": 2021,
+    "genre": "Action",
+    "duration": 131,
+    "description": "A lone mercenary crosses fractured timelines to correct a deadly paradox.",
+    "poster": "https://picsum.photos/id/1004/800/1200",
+    "trailer": "https://www.youtube.com/watch?v=VYOjWnS4cMY"
+  }
+]

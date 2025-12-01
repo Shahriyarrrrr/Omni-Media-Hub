@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Music — Omni Media Hub</title>
+  <meta name="description" content="Browse, preview and create playlists from our music library." />
+  <link rel="stylesheet" href="css/music.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="music.html" class="active">Music</a></li>
+        <li><a href="playlists.html">Playlists</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="music-player.html" class="btn">Open Player</a>
+      <a href="login.html" class="btn">Login</a>
+    </div>
+  </header>
+
+  <main class="container" id="musicMain" role="main">
+    <section class="catalog-controls">
+      <div class="left-controls">
+        <label class="sr-only" for="musicSearch">Search music</label>
+        <input id="musicSearch" type="search" placeholder="Search songs, artists..." autocomplete="off" aria-label="Search music">
+        <div id="suggestions" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
+      </div>
+
+      <div class="right-controls">
+        <div class="chip-wrap" id="filterChips" aria-label="Filters"></div>
+        <select id="musicSort" aria-label="Sort music">
+          <option value="popular">Popular</option>
+          <option value="new">Newest</option>
+          <option value="title">Title A→Z</option>
+          <option value="artist">Artist A→Z</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="catalog" aria-labelledby="catalogTitle">
+      <h2 id="catalogTitle" class="sr-only">Music Catalog</h2>
+      <div id="musicGrid" class="music-grid" role="list"></div>
+    </section>
+
+    <section class="sidebar" aria-label="Playlist & Library">
+      <div class="playlists-panel">
+        <h3>Playlists</h3>
+        <div class="playlist-controls">
+          <input id="newPlName" placeholder="New playlist name" />
+          <button id="createPlaylist" class="btn">Create</button>
+        </div>
+        <div id="playlistsList" class="playlists-list" role="list"></div>
+      </div>
+
+      <div class="queue-panel">
+        <h3>Queue</h3>
+        <div id="queueList" class="queue-list" role="list"></div>
+        <div class="queue-actions">
+          <button id="clearQueue" class="btn outline">Clear</button>
+          <button id="saveQueuePl" class="btn">Save to Playlist</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky mini player -->
+  <div id="miniPlayer" class="mini-player" aria-live="polite" aria-atomic="true">
+    <div class="mini-info">
+      <img id="miniCover" src="assets/images/music-placeholder.jpg" alt="cover">
+      <div>
+        <div id="miniTitle">No track</div>
+        <div id="miniArtist" class="muted">—</div>
+      </div>
+    </div>
+    <div class="mini-controls">
+      <button id="miniPrev" class="icon-btn" title="Previous">‹</button>
+      <button id="miniPlay" class="icon-btn" title="Play/Pause">►</button>
+      <button id="miniNext" class="icon-btn" title="Next">›</button>
+      <button id="miniOpen" class="btn">Open Player</button>
+    </div>
+    <audio id="miniAudio" preload="metadata"></audio>
+  </div>
+
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <!-- Add-to-playlist modal -->
+  <div id="addPlModal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeAddPl">✕</button>
+      <h4>Add to Playlist</h4>
+      <div id="addPlList" class="add-pl-list" role="list"></div>
+      <div style="margin-top:12px;"><input id="tmpPlName" placeholder="Create & add to new playlist" /><button id="createAndAdd" class="btn">Create & Add</button></div>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+</body>
+</html>

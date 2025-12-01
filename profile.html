@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+  <div class="profile-root">
+
+    <!-- HERO / BANNER -->
+    <header class="hero">
+      <div class="banner-glow"></div>
+      <div class="banner-content">
+        <div class="banner-left">
+          <div class="avatar-wrap">
+            <img id="avatarImg" class="avatar-img" alt="avatar">
+            <button id="changeAvatarBtn" class="avatar-edit">Change</button>
+            <input id="avatarInput" type="file" accept="image/*" style="display:none">
+          </div>
+        </div>
+
+        <div class="banner-right">
+          <div class="user-info">
+            <h1 id="displayName">User Name</h1>
+            <div id="displayEmail" class="muted">user@omni</div>
+            <div class="stats-row">
+              <div><div id="favCount" class="stat-num">0</div><div class="stat-label">Favorites</div></div>
+              <div><div id="plCount" class="stat-num">0</div><div class="stat-label">Playlists</div></div>
+              <div><div id="historyCount" class="stat-num">0</div><div class="stat-label">History</div></div>
+            </div>
+            <div class="banner-actions">
+              <button id="editProfileBtn" class="btn primary">Edit Profile</button>
+              <button id="exportDataBtn" class="btn">Export Data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <div class="content-grid">
+
+      <!-- LEFT PANEL -->
+      <aside class="left-panel">
+        <nav class="profile-nav">
+          <button data-tab="account" class="tab-btn active">Account</button>
+          <button data-tab="preferences" class="tab-btn">Preferences</button>
+          <button data-tab="security" class="tab-btn">Security</button>
+          <button data-tab="activity" class="tab-btn">Activity</button>
+        </nav>
+
+        <div class="danger-zone">
+          <button id="deleteAccountBtn" class="btn danger">Delete Account</button>
+        </div>
+      </aside>
+
+      <!-- RIGHT PANEL -->
+      <main class="right-panel">
+
+        <!-- Account -->
+        <section class="tab active" data-tab="account">
+          <div class="card">
+            <h2>Profile details</h2>
+            <label>Full name</label>
+            <input id="inputName" type="text" placeholder="Your name">
+
+            <label>Email</label>
+            <input id="inputEmail" type="email" disabled>
+
+            <label>Bio</label>
+            <textarea id="inputBio" rows="4" placeholder="A short bio..."></textarea>
+
+            <div style="display:flex;gap:10px;margin-top:12px;justify-content:flex-end">
+              <button id="saveProfileBtn" class="btn primary">Save</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Preferences -->
+        <section class="tab" data-tab="preferences">
+          <div class="card">
+            <h2>Preferences</h2>
+
+            <div class="pref-row">
+              <label>Theme</label>
+              <select id="prefTheme">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+            </div>
+
+            <div class="pref-row">
+              <label>Default volume</label>
+              <input id="prefVolume" type="range" min="0" max="1" step="0.01">
+            </div>
+
+            <div class="pref-row">
+              <label>Explicit content filter</label>
+              <input id="prefExplicit" type="checkbox">
+            </div>
+
+            <div class="pref-row">
+              <label>Show mini-player</label>
+              <input id="prefMini" type="checkbox">
+            </div>
+
+            <div class="pref-row">
+              <label>Language</label>
+              <select id="prefLang">
+                <option value="en">English</option>
+                <option value="bn">Bengali</option>
+                <option value="es">Spanish</option>
+              </select>
+            </div>
+
+            <div style="display:flex;justify-content:flex-end;margin-top:12px">
+              <button id="savePrefsBtn" class="btn primary">Save Preferences</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Security -->
+        <section class="tab" data-tab="security">
+          <div class="card">
+            <h2>Security</h2>
+            <label>Change password</label>
+            <input id="oldPassword" type="password" placeholder="Current password">
+            <input id="newPassword" type="password" placeholder="New password">
+            <input id="confirmPassword" type="password" placeholder="Confirm new password">
+
+            <div style="display:flex;gap:10px;margin-top:12px;justify-content:flex-end">
+              <button id="changePwBtn" class="btn primary">Change Password</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activity -->
+        <section class="tab" data-tab="activity">
+          <div class="card">
+            <h2>Activity & history</h2>
+            <div id="activityList" class="activity-list"></div>
+            <div style="text-align:right;margin-top:12px">
+              <button id="clearHistoryBtn" class="btn">Clear History</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- MODAL BACKDROP -->
+    <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+      <div id="modalPanel" class="modal-panel"></div>
+    </div>
+
+  </div>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

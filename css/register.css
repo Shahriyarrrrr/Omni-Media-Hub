@@ -1,0 +1,130 @@
+/* register.css — Omni Pro Auth UI */
+
+:root {
+  --bg1: #020d16;
+  --bg2: #041d2a;
+  --glass: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --text: #e7faff;
+  --muted: #9db4c7;
+  --accent: #27d3ff;
+  --accent2: #1db954;
+  --danger: #ff4c4c;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(160deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.auth-panel {
+  background: var(--glass);
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.header h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.header p {
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.07);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #002027;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-btn:hover {
+  filter: brightness(1.15);
+}
+
+.login-link {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.login-link a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  padding: 12px 16px;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+#toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ar001",
+    "name": "Nova Pulse",
+    "bio": "Electronic producer known for cosmic and atmospheric soundscapes.",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg",
+    "genres": ["Electronic", "Ambient"]
+  },
+  {
+    "id": "ar002",
+    "name": "Echo Circuit",
+    "bio": "Ambient and electronic minimalist blending analog warmth with digital clarity.",
+    "image": "https://randomuser.me/api/portraits/men/22.jpg",
+    "genres": ["Ambient", "Electronic"]
+  },
+  {
+    "id": "ar003",
+    "name": "Synth Horizon",
+    "bio": "Retro-futuristic synthwave artist inspired by neon-drenched nostalgia.",
+    "image": "https://randomuser.me/api/portraits/men/46.jpg",
+    "genres": ["Synthwave"]
+  }
+]

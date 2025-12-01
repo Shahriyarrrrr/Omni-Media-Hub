@@ -1,0 +1,16 @@
+[
+  {
+    "id": "pl001",
+    "name": "Cosmic Drive",
+    "description": "Retro-futuristic synthwave & electronic drive themes.",
+    "cover": "https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab",
+    "tracks": ["ms001", "ms003"]
+  },
+  {
+    "id": "pl002",
+    "name": "Deep Night Calm",
+    "description": "Ambient meditative music for focus and calm.",
+    "cover": "https://images.unsplash.com/photo-1536004050609-25fd1f3a3897",
+    "tracks": ["ms002"]
+  }
+]

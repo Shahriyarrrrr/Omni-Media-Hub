@@ -1,0 +1,119 @@
+:root{
+  --bg:#051021;
+  --panel:#0c1b33;
+  --text:#e9f3ff;
+  --muted:#9aa3b4;
+  --accent:#8be7ff;
+  --radius:12px;
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:linear-gradient(180deg,#020b16,var(--bg));
+  color:var(--text);
+}
+
+/* Header */
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 24px;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(6px);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.header a{color:var(--text);text-decoration:none;font-weight:600;margin-left:20px;}
+.header .active{color:var(--accent);}
+
+.logo a{font-size:20px;font-weight:800;}
+.logo span{color:var(--accent);}
+
+/* Layout */
+.container{
+  max-width:980px;
+  margin:22px auto;
+  padding:0 20px;
+}
+.muted{color:var(--muted);margin-bottom:14px;}
+h1{margin:0 0 6px;}
+h2{margin:0 0 12px;font-size:18px;}
+
+.panel{
+  background:rgba(255,255,255,0.05);
+  padding:16px;
+  border-radius:12px;
+  margin-bottom:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.row label{
+  flex:0 0 180px;
+  font-weight:600;
+  color:var(--muted);
+}
+
+.row select,
+.row input[type="color"],
+.row input[type="number"],
+.row input[type="text"]{
+  padding:8px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.07);
+  background:rgba(255,255,255,0.05);
+  color:var(--text);
+}
+
+.row input[type="range"]{
+  flex:1;
+}
+
+.btn{
+  padding:8px 14px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.05);
+  color:var(--text);
+  cursor:pointer;
+}
+
+.btn.primary{
+  background:var(--accent);
+  color:#021;
+  border:0;
+  font-weight:700;
+}
+
+.btn.danger{
+  background:#e22;
+  color:#fff;
+  border:0;
+}
+
+.btn.small{font-size:13px;padding:6px 10px;}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* Toast */
+#toastContainer{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+}
+
+.toast{
+  background:rgba(0,0,0,0.65);
+  padding:10px 16px;
+  margin-top:10px;
+  border-radius:8px;
+  transition:opacity .2s;
+}

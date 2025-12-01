@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body>
+
+  <div id="app" class="app-root">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">OMNI <span>ADMIN</span></div>
+
+      <nav class="nav">
+        <button data-view="overview" class="nav-btn active">Overview</button>
+        <button data-view="users" class="nav-btn">Users</button>
+        <button data-view="media" class="nav-btn">Media</button>
+        <button data-view="payments" class="nav-btn">Payments</button>
+        <button data-view="subscriptions" class="nav-btn">Subscriptions</button>
+        <button data-view="logs" class="nav-btn">Activity Logs</button>
+        <button data-view="dev" class="nav-btn">Developer Tools</button>
+        <button data-view="settings" class="nav-btn">Settings</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="small muted">Signed in as</div>
+        <div id="adminName" class="admin-name">Admin</div>
+        <button id="logoutBtn" class="btn-ghost">Logout</button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="search-wrap">
+          <input id="globalSearch" placeholder="Search users, media, payments..." />
+        </div>
+
+        <div class="top-actions">
+          <button id="exportAll" class="btn">Export Data</button>
+          <button id="importBtn" class="btn">Import</button>
+          <input id="importInput" type="file" accept=".json" style="display:none" />
+          <button id="notificationsBtn" class="icon-btn">🔔 <span id="notifCount" class="notif-count">0</span></button>
+        </div>
+      </header>
+
+      <!-- VIEWS -->
+      <main class="content">
+
+        <!-- OVERVIEW -->
+        <section data-view="overview" class="view active">
+          <h2>Overview</h2>
+
+          <div class="grid-3">
+            <div class="card stat">
+              <div class="stat-head">Users</div>
+              <div id="statUsers" class="stat-value">0</div>
+            </div>
+            <div class="card stat">
+              <div class="stat-head">Media</div>
+              <div id="statMedia" class="stat-value">0</div>
+            </div>
+            <div class="card stat">
+              <div class="stat-head">Revenue</div>
+              <div id="statRevenue" class="stat-value">$0</div>
+            </div>
+          </div>
+
+          <div class="charts-row">
+            <div class="card chart-card">
+              <div class="card-title">Monthly Revenue</div>
+              <canvas id="chartRevenue" width="600" height="220"></canvas>
+            </div>
+
+            <div class="card chart-card">
+              <div class="card-title">Active Users (last 7 days)</div>
+              <canvas id="chartUsers" width="400" height="220"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- USERS -->
+        <section data-view="users" class="view">
+          <div class="view-head">
+            <h2>Users</h2>
+            <div>
+              <input id="userFilter" placeholder="Filter by name or email" />
+              <button id="addUserBtn" class="btn primary">Add User</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div id="usersList" class="list"></div>
+          </div>
+        </section>
+
+        <!-- MEDIA -->
+        <section data-view="media" class="view">
+          <div class="view-head">
+            <h2>Media Library</h2>
+            <div>
+              <select id="mediaTypeFilter">
+                <option value="all">All</option>
+                <option value="song">Songs</option>
+                <option value="movie">Movies</option>
+                <option value="artist">Artists</option>
+              </select>
+              <button id="addMediaBtn" class="btn primary">Add Media</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div id="mediaList" class="media-grid" aria-dropeffect="move"></div>
+            <div class="muted small">Tip: Drag & drop media items to reorder (saved locally).</div>
+          </div>
+        </section>
+
+        <!-- PAYMENTS -->
+        <section data-view="payments" class="view">
+          <div class="view-head">
+            <h2>Payments</h2>
+            <div>
+              <input id="paymentFilter" placeholder="Search by tx id, user or amount" />
+              <button id="addPaymentBtn" class="btn primary">Add Payment</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <table id="paymentsTable" class="table">
+              <thead><tr><th>Tx ID</th><th>User</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SUBSCRIPTIONS -->
+        <section data-view="subscriptions" class="view">
+          <div class="view-head">
+            <h2>Subscriptions</h2>
+            <div>
+              <button id="addPlanBtn" class="btn primary">Add Plan</button>
+            </div>
+          </div>
+
+          <div id="plansGrid" class="grid-3"></div>
+        </section>
+
+        <!-- LOGS -->
+        <section data-view="logs" class="view">
+          <h2>Activity Logs</h2>
+          <div class="card">
+            <div id="logsList" class="logs"></div>
+            <div class="muted small">Recent admin actions will appear here.</div>
+          </div>
+        </section>
+
+        <!-- DEVELOPER TOOLS -->
+        <section data-view="dev" class="view">
+          <h2>Developer Tools</h2>
+          <div class="card">
+            <button id="clearDataBtn" class="btn danger">Clear All App Data</button>
+            <button id="seedDemoBtn" class="btn">Seed Demo Data</button>
+            <div style="margin-top:12px;">
+              <textarea id="devJsonArea" placeholder="Paste JSON to import into store" style="width:100%;height:120px"></textarea>
+              <div style="margin-top:8px;display:flex;gap:8px;">
+                <button id="devImportBtn" class="btn">Import JSON</button>
+                <button id="devExportBtn" class="btn">Export Current State</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section data-view="settings" class="view">
+          <h2>Admin Settings</h2>
+          <div class="card">
+            <div class="row">
+              <label>Theme</label>
+              <select id="adminTheme">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <label>Show Admin Notifications</label>
+              <input id="showNotifs" type="checkbox" />
+            </div>
+
+            <div class="row">
+              <label>Export / Import</label>
+              <button id="exportBtn2" class="btn">Export Data</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div id="modalPanel" class="modal-panel"></div>
+  </div>
+
+  <!-- UNDO TOAST -->
+  <div id="undoToast" class="undo-toast" style="display:none">
+    <span id="undoMsg">Item removed</span>
+    <button id="undoBtn" class="btn">Undo</button>
+  </div>
+
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

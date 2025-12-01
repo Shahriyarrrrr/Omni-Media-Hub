@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artists — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/artists.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="artists.html" class="active">Artists</a></li>
+        <li><a href="playlists.html">Playlists</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="music-player.html" class="btn">Open Player</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="toolbar">
+      <input id="searchInput" placeholder="Search artists...">
+
+      <select id="sortSelect">
+        <option value="az">Sort A–Z</option>
+        <option value="za">Sort Z–A</option>
+        <option value="songs">Most Songs</option>
+        <option value="recent">Recently Added</option>
+      </select>
+
+      <button id="newArtistBtn" class="btn primary">Add Artist</button>
+    </section>
+
+    <section id="artistsGrid" class="artists-grid"></section>
+
+  </main>
+
+  <!-- ADD / EDIT ARTIST MODAL -->
+  <div id="artistModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button id="closeModal" class="modal-close">✕</button>
+
+      <h3 id="modalTitle">Add Artist</h3>
+
+      <input id="artistName" placeholder="Artist name">
+      <input id="artistImage" placeholder="Artist image URL">
+      <textarea id="artistBio" placeholder="Artist biography"></textarea>
+
+      <div class="modal-actions">
+        <button id="saveArtist" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer"></div>
+
+  <script src="js/artists.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[
+  { "name": "Sci-Fi", "color": "#7ef0ff" },
+  { "name": "Drama", "color": "#ffd6e0" },
+  { "name": "Action", "color": "#ffb86c" },
+  { "name": "Electronic", "color": "#8be7ff" },
+  { "name": "Ambient", "color": "#c9ffe7" },
+  { "name": "Synthwave", "color": "#ff6bc1" }
+]

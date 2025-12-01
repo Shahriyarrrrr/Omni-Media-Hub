@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — Omni Media Hub</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-panel">
+
+        <div class="header">
+            <h1>Create Account</h1>
+            <p>Join the Omni Media Hub experience</p>
+        </div>
+
+        <form id="registerForm">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="regName" placeholder="Enter full name">
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="regEmail" placeholder="Enter email address">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="regPassword" placeholder="Create password">
+            </div>
+
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" id="regConfirm" placeholder="Confirm password">
+            </div>
+
+            <button type="submit" class="auth-btn">Create Account</button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/register.js"></script>
+
+</body>
+</html>

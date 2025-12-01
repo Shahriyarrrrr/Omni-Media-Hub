@@ -1,0 +1,76 @@
+:root{
+  --bg:#061225;
+  --panel:#0b1220;
+  --muted:#9aa4b2;
+  --text:#eaf4ff;
+  --accent:#ffa94d;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --shadow: 0 12px 30px rgba(2,6,12,0.6);
+  --max-width:1200px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,Arial; background:linear-gradient(180deg,#031225,#061225); color:var(--text);
+}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;background:rgba(3,6,10,0.4);z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
+.brand .logo{font-weight:800;color:var(--text);text-decoration:none}
+.logo span{color:var(--accent)}
+
+.container{max-width:var(--max-width);margin:20px auto;padding:0 18px}
+.page-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}
+.page-head .left h1{margin:0;font-size:26px}
+.page-head .muted{color:var(--muted);margin-top:6px}
+
+.controls{display:flex;gap:8px;align-items:center}
+.controls input[type="search"], .controls input[type="text"]{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.controls input#newPlInput{min-width:220px}
+.btn{padding:9px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--text);cursor:pointer}
+.btn.primary{background:var(--accent);color:#081018;border:0}
+.btn.outline{background:transparent}
+
+.playlists-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.playlist-card{position:relative;overflow:hidden;border-radius:14px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease;box-shadow:var(--shadow)}
+.playlist-card:hover{transform:translateY(-8px)}
+.pl-title{font-weight:700;font-size:16px}
+.pl-sub{color:var(--muted);font-size:13px;margin-top:6px}
+.pl-actions{display:flex;gap:8px;align-items:center}
+.card-controls{display:flex;gap:6px;align-items:center;justify-content:flex-end}
+.icon-btn{background:rgba(0,0,0,0.15);border:0;color:var(--text);padding:8px;border-radius:8px;cursor:pointer}
+
+.pl-cover-mini{position:absolute;right:-30px;top:-30px;opacity:.14;transform:rotate(20deg);filter:blur(2px);width:220px;height:220px;pointer-events:none}
+
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
+
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,12,0.6);z-index:160}
+.modal[aria-hidden="false"]{display:flex}
+.modal-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;width:100%;max-width:980px;box-shadow:var(--shadow);position:relative}
+.modal-close{position:absolute;right:12px;top:12px;background:transparent;border:0;font-size:18px;cursor:pointer}
+
+.pl-meta{display:flex;gap:12px;align-items:center}
+.pl-cover{width:140px;height:140px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);box-shadow:var(--shadow)}
+.pl-cover .big{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.pl-info{flex:1;display:flex;flex-direction:column;gap:8px}
+.pl-name-input{font-size:20px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.pl-stats{color:var(--muted);font-size:13px}
+.pl-actions{display:flex;gap:8px;margin-top:6px}
+
+.pl-tracklist-wrap{margin-top:18px}
+.pl-tracklist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;max-height:320px;overflow:auto}
+.pl-track{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02)}
+.pl-track .t-cover{width:56px;height:56px;border-radius:6px;object-fit:cover}
+.pl-track .t-info{flex:1}
+.pl-track .t-actions{display:flex;gap:6px}
+
+.tracklist-actions{display:flex;gap:8px;margin-top:10px}
+
+.toast{position:fixed;right:18px;bottom:18px;background:rgba(0,0,0,0.6);padding:8px 12px;border-radius:8px;color:var(--text);box-shadow:0 8px 20px rgba(0,0,0,0.5)}
+
+@media (max-width:900px){
+  .page-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .controls{flex-wrap:wrap}
+  .playlists-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}

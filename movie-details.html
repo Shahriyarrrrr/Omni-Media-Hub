@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Replace the content of the following meta tags dynamically on server or client for SEO/OG -->
+  <title>Movie Details — Omni Media Hub</title>
+  <meta name="description" content="Movie details, trailer, cast, ratings and related content on Omni Media Hub.">
+  <meta property="og:type" content="video.movie" />
+  <meta property="og:title" content="Movie Details — Omni Media Hub" />
+  <meta property="og:description" content="Watch trailer, view cast, comment, and rate movies." />
+  <meta property="og:image" content="assets/images/placeholder.jpg" />
+  <link rel="stylesheet" href="css/movie-details.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="music.html">Music</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="playlists.html" class="btn outline">Playlists</a>
+      <a href="login.html" class="btn">Login</a>
+    </div>
+  </header>
+
+  <main class="container" id="moviePage" role="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> › <a href="movies.html">Movies</a> › <span id="bcTitle">Loading...</span>
+    </nav>
+
+    <section class="detail-hero" id="detailHero" aria-labelledby="movieTitle">
+      <div class="poster-area">
+        <img id="posterImg" class="poster" src="assets/images/placeholder.jpg" alt="Movie poster" loading="lazy">
+        <div class="poster-actions">
+          <button id="openPoster" class="icon-btn" title="Open poster">🔍</button>
+          <a id="downloadPoster" class="btn outline" download>Download</a>
+          <button id="favBtn" class="btn">☆ Favorite</button>
+        </div>
+      </div>
+
+      <div class="info-area">
+        <h1 id="movieTitle">Loading...</h1>
+        <div class="meta-row">
+          <span id="metaGenres" class="muted">—</span>
+          <span id="metaYear" class="muted">—</span>
+          <span id="metaRuntime" class="muted">—</span>
+        </div>
+
+        <p id="movieDesc" class="lead">Loading description…</p>
+
+        <div class="actions-row">
+          <button id="openTrailer" class="btn primary">Watch Trailer</button>
+          <button id="addWatchlist" class="btn outline">Add to Watchlist</button>
+          <button id="shareBtn" class="btn">Share</button>
+        </div>
+
+        <div class="rating-row" aria-label="Movie rating">
+          <div class="rating-ui" id="ratingUi" role="radiogroup" aria-label="Rate this movie">
+            <!-- stars injected here -->
+          </div>
+          <div class="rating-stats muted" id="ratingStats"></div>
+        </div>
+
+        <div class="cast-block" aria-label="Cast">
+          <h3>Cast</h3>
+          <div id="castCarousel" class="cast-carousel" tabindex="0" aria-roledescription="carousel"></div>
+          <div class="carousel-controls">
+            <button id="castPrev" class="icon-btn" aria-label="Previous cast">‹</button>
+            <button id="castNext" class="icon-btn" aria-label="Next cast">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section" aria-labelledby="relatedTitle">
+      <h3 id="relatedTitle">Related Movies</h3>
+      <div id="relatedGrid" class="related-grid" role="list"></div>
+    </section>
+
+    <section class="comments" aria-labelledby="commentsTitle">
+      <h3 id="commentsTitle">Comments</h3>
+      <form id="commentForm" class="comment-form" aria-label="Add comment">
+        <input id="commentName" placeholder="Your name" required />
+        <textarea id="commentText" rows="3" placeholder="Write your comment..." required></textarea>
+        <div class="comment-actions">
+          <button type="submit" class="btn primary">Post Comment</button>
+          <button type="button" id="clearComments" class="btn outline">Clear All</button>
+        </div>
+      </form>
+
+      <div id="commentsList" class="comments-list" role="feed" aria-live="polite"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; <span id="footYear"></span> Omni Media Hub</small>
+  </footer>
+
+  <!-- Trailer Modal -->
+  <div id="trailerModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="trailerTitle">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeTrailer" aria-label="Close trailer">✕</button>
+      <h4 id="trailerTitle">Trailer</h4>
+      <div class="player-wrap" id="playerWrap">
+        <!-- custom player injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Poster Lightbox -->
+  <div id="posterLightbox" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="closePosterLightbox" aria-label="Close">✕</button>
+      <img id="lightboxImg" src="assets/images/placeholder.jpg" alt="Poster large" style="width:100%;height:auto;border-radius:8px" loading="lazy">
+    </div>
+  </div>
+
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <!-- Structured data will be populated dynamically -->
+  <script src="js/movie-details.js"></script>
+</body>
+</html>

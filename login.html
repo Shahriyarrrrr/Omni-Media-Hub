@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <main class="auth-root">
+    <div class="auth-card" role="form" aria-labelledby="authTitle">
+      <h1 id="authTitle">Welcome to Omni Media</h1>
+      <p class="muted">Sign in with your account or register a new one.</p>
+
+      <form id="loginForm" autocomplete="on" novalidate>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@domain.com" required>
+
+        <label for="password">Password</label>
+        <div class="pw-row">
+          <input id="password" type="password" placeholder="Your password" required>
+          <button type="button" id="togglePw" class="icon-btn" aria-label="Toggle Password">👁</button>
+        </div>
+
+        <div class="row-inline">
+          <label class="small"><input id="remember" type="checkbox"> Remember me</label>
+          <button id="forgotBtn" type="button" class="link-btn">Forgot?</button>
+        </div>
+
+        <div class="actions">
+          <button id="loginBtn" type="submit" class="btn primary">Log in</button>
+          <button id="openRegister" type="button" class="btn outline">Register</button>
+        </div>
+      </form>
+
+      <div class="demo-note muted">
+        Demo Accounts:<br>
+        <strong>admin@omni / Admin@123</strong><br>
+        <strong>dev@omni / Dev@123</strong><br>
+        <strong>user@omni / User@123</strong>
+      </div>
+
+      <div id="toastContainer"></div>
+    </div>
+  </main>
+
+  <!-- REGISTER -->
+  <div id="registerModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button id="closeRegister" class="modal-close">✕</button>
+      <h2>Create Account</h2>
+
+      <label>Full Name</label>
+      <input id="regName" type="text">
+
+      <label>Email</label>
+      <input id="regEmail" type="email">
+
+      <label>Password</label>
+      <input id="regPassword" type="password">
+
+      <label>Role</label>
+      <select id="regRole">
+        <option value="user">User</option>
+        <option value="developer">Developer</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <div class="modal-actions">
+        <button id="registerBtn" class="btn primary">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORGOT PASSWORD -->
+  <div id="forgotModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button id="closeForgot" class="modal-close">✕</button>
+      <h2>Reset Password</h2>
+
+      <label>Registered Email</label>
+      <input id="fpEmail" type="email">
+
+      <p class="muted">If your email exists, you will be able to set a new password.</p>
+
+      <button id="fpLookup" class="btn">Verify Email</button>
+
+      <div id="fpStep2" style="display:none;margin-top:12px;">
+        <label>New Password</label>
+        <input id="fpNewPwd" type="password">
+        <button id="fpApply" class="btn primary" style="margin-top:10px;">Apply</button>
+      </div>
+    </div>
+  </div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

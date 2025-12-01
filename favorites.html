@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Favorites — Omni Media Hub</title>
+
+  <link rel="stylesheet" href="css/favorites.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="playlists.html">Playlists</a></li>
+        <li><a href="favorites.html" class="active">Favorites</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="music-player.html" class="btn">Open Player</a>
+    </div>
+  </header>
+
+
+  <!-- CONTENT -->
+  <main class="container">
+
+    <section class="page-head">
+      <h1>Your Favorites</h1>
+      <p class="muted">Saved songs and movies. Remove or play anytime.</p>
+    </section>
+
+    <!-- FAVORITE SONGS -->
+    <section class="fav-section">
+      <h2>Favorite Songs</h2>
+
+      <div id="favSongs" class="fav-grid"></div>
+      <div id="noSongs" class="empty-msg muted">No favorite songs yet.</div>
+    </section>
+
+    <!-- FAVORITE MOVIES -->
+    <section class="fav-section">
+      <h2>Favorite Movies</h2>
+
+      <div id="favMovies" class="fav-grid"></div>
+      <div id="noMovies" class="empty-msg muted">No favorite movies yet.</div>
+    </section>
+
+  </main>
+
+  <!-- CONFIRMATION MODAL -->
+  <div id="confirmOverlay" class="confirm-overlay" aria-hidden="true">
+    <div class="confirm-box">
+      <h3 id="confirmTitle">Remove Favorite?</h3>
+      <p id="confirmMsg">This item will be removed from your favorites.</p>
+
+      <div class="confirm-actions">
+        <button id="confirmCancel" class="btn-cancel">Cancel</button>
+        <button id="confirmYes" class="btn-remove">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOASTS -->
+  <div id="toastContainer"></div>
+
+  <script src="js/favorites.js"></script>
+</body>
+</html>

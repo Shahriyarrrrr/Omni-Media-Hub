@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Developer Portal — Omni Media Hub</title>
+  <link rel="stylesheet" href="css/dev-portal.css">
+</head>
+<body>
+
+<div class="app-root">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">OMNI <span>DEV</span></div>
+
+    <nav class="nav">
+      <button data-panel="overview" class="nav-btn active">Overview</button>
+      <button data-panel="tools" class="nav-btn">Tools</button>
+      <button data-panel="storage" class="nav-btn">Storage Inspector</button>
+      <button data-panel="json" class="nav-btn">JSON Editor</button>
+      <button data-panel="sandbox" class="nav-btn">Component Sandbox</button>
+      <button data-panel="logs" class="nav-btn">Dev Logs</button>
+      <button data-panel="settings" class="nav-btn">Dev Settings</button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="muted small">Developer</div>
+      <div id="devName" class="dev-name">Developer</div>
+      <button id="logoutBtn" class="btn-ghost">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <input id="searchDev" placeholder="Search tools…">
+      <div class="top-actions">
+        <button id="exportBtn" class="btn">Export App Data</button>
+        <button id="importBtn" class="btn">Import JSON</button>
+        <input id="importInput" type="file" accept=".json" style="display:none">
+        <button id="notifBtn" class="icon-btn">🔔</button>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+      <!-- OVERVIEW -->
+      <div class="panel active" data-panel="overview">
+        <h2>Developer Portal Overview</h2>
+
+        <div class="grid-3">
+          <div class="card stat">
+            <div class="stat-title">Users</div>
+            <div id="devStatUsers" class="stat-value">0</div>
+          </div>
+          <div class="card stat">
+            <div class="stat-title">Media Items</div>
+            <div id="devStatMedia" class="stat-value">0</div>
+          </div>
+          <div class="card stat">
+            <div class="stat-title">Payments</div>
+            <div id="devStatPayments" class="stat-value">0</div>
+          </div>
+        </div>
+
+        <div class="card version-card">
+          <div>Omni Media Hub — Developer Console</div>
+          <div id="appVersion" class="muted small">Version 1.0.0-dev</div>
+        </div>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="panel" data-panel="tools">
+        <h2>Developer Tools</h2>
+
+        <div class="tools-grid">
+
+          <div class="tool-card">
+            <div class="tool-title">Simulate Notification</div>
+            <button id="simNotif" class="btn primary">Push Notification</button>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-title">Simulate Error</div>
+            <button id="simError" class="btn danger">Trigger Error</button>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-title">Generate Fake User</div>
+            <button id="addFakeUser" class="btn">Create</button>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-title">Generate Fake Media</div>
+            <button id="addFakeMedia" class="btn">Create</button>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-title">Generate Fake Payment</div>
+            <button id="addFakePayment" class="btn">Create</button>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-title">Clear ALL App Data</div>
+            <button id="clearAll" class="btn danger">Clear Storage</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STORAGE -->
+      <div class="panel" data-panel="storage">
+        <h2>LocalStorage Inspector</h2>
+        <div id="storageList" class="card storage-list"></div>
+      </div>
+
+      <!-- JSON -->
+      <div class="panel" data-panel="json">
+        <h2>JSON Editor</h2>
+        <div class="card">
+          <textarea id="jsonArea" spellcheck="false"></textarea>
+          <div class="json-actions">
+            <button id="saveJson" class="btn primary">Apply JSON</button>
+            <button id="prettyJson" class="btn">Format</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SANDBOX -->
+      <div class="panel" data-panel="sandbox">
+        <h2>Component Sandbox</h2>
+        <div class="card sandbox-card">
+          <p class="muted small">Live HTML Preview:</p>
+          <textarea id="sandboxInput" placeholder="<div>Hello Sandbox</div>"></textarea>
+          <div id="sandboxOutput" class="sandbox-output"></div>
+        </div>
+      </div>
+
+      <!-- LOGS -->
+      <div class="panel" data-panel="logs">
+        <h2>Developer Logs</h2>
+        <div id="devLogs" class="card logs"></div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="panel" data-panel="settings">
+        <h2>Dev Settings</h2>
+
+        <div class="card">
+          <label class="toggle">
+            <input id="devTheme" type="checkbox">
+            <span>Enable Neon Theme</span>
+          </label>
+
+          <label class="toggle">
+            <input id="devAutoLogs" type="checkbox">
+            <span>Auto-generate Logs</span>
+          </label>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- MODAL -->
+<div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+  <div id="modalPanel" class="modal-panel"></div>
+</div>
+
+<script src="js/dev-portal.js"></script>
+</body>
+</html>

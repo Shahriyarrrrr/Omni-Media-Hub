@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Player — Omni Media Hub</title>
+  <meta name="description" content="Advanced music player with real-time circular visualizer." />
+  <link rel="stylesheet" href="css/music-player.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="playlists.html">Playlists</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="playlists.html" class="btn">Playlists</a>
+      <a href="login.html" class="btn">Login</a>
+    </div>
+  </header>
+
+  <main class="player-main" role="main">
+    <section class="left-panel" aria-label="Player">
+      <div class="album-wrap">
+        <div class="album-art">
+          <img id="playerCover" src="assets/images/music-placeholder.jpg" alt="Cover" crossorigin="anonymous" />
+          <canvas id="visualizer" width="720" height="720" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="player-meta">
+          <div class="title-row">
+            <h2 id="playerTitle">No track loaded</h2>
+            <div id="playerArtist" class="muted">—</div>
+          </div>
+
+          <div class="controls">
+            <div class="transport">
+              <button id="prevBtn" class="icon-btn" aria-label="Previous">⟨</button>
+              <button id="playBtn" class="play-btn" aria-label="Play">►</button>
+              <button id="nextBtn" class="icon-btn" aria-label="Next">⟩</button>
+              <button id="loopBtn" class="icon-btn" aria-label="Loop">🔁</button>
+            </div>
+
+            <div class="seek-wrap" aria-label="Seek bar">
+              <input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-valuemin="0" aria-valuemax="100" />
+              <div class="time-row"><span id="curTime">0:00</span><span id="durTime">0:00</span></div>
+            </div>
+
+            <div class="audio-controls">
+              <button id="muteBtn" class="icon-btn" aria-label="Mute">🔈</button>
+              <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume" />
+              <button id="shareBtn" class="btn">Share</button>
+              <button id="addPlBtn" class="btn">Add to Playlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lyrics-panel" aria-live="polite">
+        <h3>Lyrics</h3>
+        <div id="lyrics" class="lyrics-scroll">No lyrics available</div>
+      </div>
+
+    </section>
+
+    <aside class="right-panel" aria-label="Queue & controls">
+      <div class="queue-header">
+        <h3>Queue</h3>
+        <div class="queue-actions">
+          <button id="shuffleBtn" class="btn">Shuffle</button>
+          <button id="clearQueueBtn" class="btn outline">Clear</button>
+        </div>
+      </div>
+      <ul id="queue" class="queue-list" role="list" aria-label="Playback queue"></ul>
+      <div class="queue-foot">
+        <small class="muted">Drag to reorder. Click track to play.</small>
+      </div>
+    </aside>
+  </main>
+
+  <audio id="audioElement" crossorigin="anonymous"></audio>
+
+  <div id="addPlModal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeAddPl" aria-label="Close">✕</button>
+      <h4>Add track to playlist</h4>
+      <div id="plList"></div>
+      <div style="margin-top:12px;"><input id="newPlaylistName" placeholder="New playlist name" /><button id="createPlBtn" class="btn">Create & Add</button></div>
+    </div>
+  </div>
+
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <script src="js/music-player.js"></script>
+</body>
+</html>

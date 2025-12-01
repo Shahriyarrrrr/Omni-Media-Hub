@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Playlists — Omni Media Hub</title>
+  <meta name="description" content="Manage your playlists on Omni Media Hub — create, edit, reorder, and play." />
+  <link rel="stylesheet" href="css/playlists.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="playlists.html" class="active">Playlists</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="music-player.html" class="btn">Open Player</a>
+      <a href="login.html" class="btn">Login</a>
+    </div>
+  </header>
+
+  <main class="container" id="playlistsPage" role="main">
+    <section class="page-head">
+      <div class="left">
+        <h1>Playlists</h1>
+        <p class="muted">Create and manage your music playlists. Drag to reorder. Click a playlist to open details.</p>
+      </div>
+
+      <div class="controls">
+        <label class="sr-only" for="plSearch">Search playlists</label>
+        <input id="plSearch" type="search" placeholder="Search playlists..." aria-label="Search playlists">
+        <input id="newPlInput" placeholder="New playlist name" />
+        <button id="createPlBtn" class="btn primary">Create</button>
+        <button id="importBtn" class="btn outline">Import</button>
+        <button id="exportBtn" class="btn">Export</button>
+      </div>
+    </section>
+
+    <section class="grid-wrap" aria-labelledby="yourPlaylists">
+      <h2 id="yourPlaylists" class="sr-only">Your Playlists</h2>
+      <div id="playlistsGrid" class="playlists-grid" role="list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- Playlist Details Modal -->
+  <div id="plModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="plModalTitle">
+    <div class="modal-panel">
+      <button class="modal-close" id="closePlModal" aria-label="Close">✕</button>
+      <h3 id="plModalTitle">Playlist</h3>
+      <div class="modal-body">
+        <div class="pl-meta">
+          <div id="plCover" class="pl-cover"></div>
+          <div class="pl-info">
+            <input id="plNameInput" class="pl-name-input" />
+            <div class="pl-stats muted" id="plStats"></div>
+            <div class="pl-actions">
+              <button id="playPlBtn" class="btn primary">Play Playlist</button>
+              <button id="queuePlBtn" class="btn outline">Add to Queue</button>
+              <button id="deletePlBtn" class="btn">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pl-tracklist-wrap">
+          <h4>Tracks</h4>
+          <ul id="plTrackList" class="pl-tracklist" role="list"></ul>
+          <div class="tracklist-actions">
+            <button id="addTrackManual" class="btn">Add Track (manual)</button>
+            <button id="savePlBtn" class="btn primary">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input type="file" id="importFile" accept="application/json" style="display:none">
+
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <script src="js/playlists.js"></script>
+</body>
+</html>

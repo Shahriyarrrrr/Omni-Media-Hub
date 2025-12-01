@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search — Omni Media Hub</title>
+
+  <link rel="stylesheet" href="css/search.css">
+</head>
+
+<body>
+
+<header class="search-header">
+  <div class="brand"><a href="index.html" class="logo">OMNI<span>MEDIA</span></a></div>
+
+  <div class="search-bar">
+    <input id="searchInput" type="text" placeholder="Search songs, movies, playlists, artists…" autocomplete="off">
+  </div>
+
+  <div class="nav-right">
+    <a href="music-player.html" class="player-btn">Player</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- SEARCH FILTERS -->
+  <div class="filters">
+    <button data-filter="all" class="filter active">All</button>
+    <button data-filter="songs" class="filter">Songs</button>
+    <button data-filter="movies" class="filter">Movies</button>
+    <button data-filter="artists" class="filter">Artists</button>
+    <button data-filter="playlists" class="filter">Playlists</button>
+  </div>
+
+  <!-- SEARCH HISTORY -->
+  <section class="history-section">
+    <h3>Recent Searches</h3>
+    <div id="searchHistory" class="history-list"></div>
+    <button id="clearHistory" class="clear-btn">Clear History</button>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="resultsSection" class="results-section">
+    <h2>Results</h2>
+    <div id="resultsGrid" class="results-grid"></div>
+  </section>
+
+</main>
+
+<!-- TOAST -->
+<div id="toastContainer"></div>
+
+<script src="js/search.js"></script>
+</body>
+</html>
